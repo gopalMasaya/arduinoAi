@@ -18,7 +18,7 @@ var parser = com.pipe(new readline({delimiter:'\r\n'}))
 parser.on("data",getData)
 
 function getData(data){
-  console.log(data)
+//  console.log(data)
   toApp = data
 }
 
@@ -38,7 +38,8 @@ console.log("new connection"+ socket.id)
 socket.on('msg',gotMessage)
 
 function gotMessage(data){
-  io.sockets.emit('msg',toApp)
-
+  console.log(data)
+  io.sockets.emit('msg',data)
+com.write(data)
 }
 }
